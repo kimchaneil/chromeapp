@@ -2,9 +2,10 @@ const toDOForm = document.getElementById("todo-form");
 const toDOInput = toDOForm.querySelector("input"); //document.querySelector("#todo-form input")
 const toDOList = document.getElementById("todo-list");
 
+const TODOS_KEY="todos";
 const toDos = [];
 function savetoDos(){
-    localStorage.setItem("todos",JSON.stringify(toDos)); //JSON stringify는 문자열로 저장을 해주는 기능을 가짐
+    localStorage.setItem(TODOS_KEY,JSON.stringify(toDos)); //JSON stringify는 문자열로 저장을 해주는 기능을 가짐
 }
 function paintToDo(newTodo){
     const li = document.createElement("li");
@@ -34,3 +35,11 @@ function handleToDoSubmit(event) {
 }
 
 toDOForm.addEventListener("submit",handleToDoSubmit);
+function sayHello(item){
+    console.log("this is the turn of", item);
+}
+const savedToDos = localStorage.getItem(TODOS_KEY);
+if(savedToDos !== null){
+    const parsedToDos = JSON.parse(savedToDos);
+    parsedToDos.forEach(sayHello);// parsedToDos.foreach(item) => console.log("this is the turn of", item) 과 같음
+};
