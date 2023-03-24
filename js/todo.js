@@ -22,8 +22,9 @@ function paintToDo(newTodo){
 }
 function deleteToDo(event){
    const li =event.target.parentElement;
-   console.log(li.id);
    li.remove();
+   toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id)); //li.id 값을 정수형으로 변환해서 삭제후
+   savetoDos();// savetoDo함수를 실행해서 덮어쓰기
 }
 function handleToDoSubmit(event) {
     event.preventDefault();
