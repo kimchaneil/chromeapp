@@ -5,4 +5,4 @@ function sayHello(){
 
 }
 
-setInterval(sayHello,5000); //실행시킬 함수, 밀리초(5초=5000)으로 작성
+setTimeout(sayHello,5000) //실행시킬 함수, 밀리초(5초=5000)으로 작성
