@@ -5,10 +5,18 @@ const toDOList = document.getElementById("todo-list");
 function paintToDo(newTodo){
     const li = document.createElement("li");
     const span = document.createElement("span");
+    const button = document.createElement("button");
+    button.innerText = "X";
+    button.addEventListener("click",deleteToDo);
     li.appendChild(span);
     span.innerText = newTodo;
     toDOList.appendChild(li);
-    console.log(li);
+    //console.log(li);
+    li.appendChild(button);
+}
+function deleteToDo(event){
+   const li =event.target.parentElement;
+   li.remove();
 }
 function handleToDoSubmit(event) {
     event.preventDefault();
