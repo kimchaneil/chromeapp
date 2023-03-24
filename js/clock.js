@@ -1,8 +1,9 @@
 const clock = document.querySelector("#clock")
 
-function sayHello(){
-    console.log("Hello");
+function getClock(){
+    const date = new Date();
+    clock.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 
 }
-
-setTimeout(sayHello,5000) //실행시킬 함수, 밀리초(5초=5000)으로 작성
+getClock();
+setInterval(getClock,1000); //실행시킬 함수, 밀리초(5초=5000)으로 작성
